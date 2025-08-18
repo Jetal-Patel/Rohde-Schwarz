@@ -1,2 +1,2 @@
 # Rohde-Schwarz
-Example scripts to automate Rohde &amp; Schwarz T&amp;M Instruments
+Example scripts to automate Rohde and Schwarz Test and Measurement Equipment
