@@ -42,12 +42,12 @@ znb.write_with_opc("SYST:COMM:RDEV:AKAL:ADDR 'ZN-Z54-92::101005'")
 znb.write_with_opc('CONF:CHAN1:STAT OFF')
 znb.write_with_opc("DISPlay:LAYout:EXECute '(2,1,0,0,2(1,1,0,0,[]))'")
 znb.write_with_opc("DISPlay:LAYout:EXECute '(1,2,0,0,2(1,1,0,0,[]))'")
-znb.write_with_opc("SENSe1:CORRection:COLLect:AUTO:ASSignment1:DEFine 1, 1, 2, 2")
+znb.write_with_opc("SENSe1:CORRection:COLLect:AUTO:ASSignment1:DEFine 1, 1, 2, 2") #Sometimes the numbers in here need to be changed
 znb.write_with_opc("SENSe1:CORRection:COLLect:AUTO:ASSignment1:ACQuire")
 time.sleep(3)
 znb.write_with_opc("SENSe1:CORRection:COLLect:AUTO:SAVE")
 
-
+# Setup Power Sweep
 znb.write_with_opc(':INIT:CONT ON')
 znb.write_with_opc('SENS1:SWE:TYPE POW')
 znb.write_with_opc('SOUR1:POW1:STOP -15.000000000000')
@@ -79,7 +79,7 @@ myButton = Button(root, text = "Okay!", command = root.destroy)
 myButton.pack()
 root.mainloop()
 
-
+# Change scaling, setup marker, and take masurement
 znb.write_with_opc("DISPlay:WINDow:TRACe:Y:SCALe:AUTO ONCE, 'Trc1'")
 znb.write_with_opc("DISPlay:TRACe:Y:SCALe:PDIVision 0.0500000000000, 'Trc1'")
 znb.write_with_opc('INIT:CONT OFF')
@@ -91,3 +91,4 @@ nge.write_with_opc('OUTP OFF')
 #Close the session
 nge.close()
 znb.close()
+
